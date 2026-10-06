@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Mongoose Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Quiz challenge</p>
+          <h1>Magic Mongoose Quiz</h1>
+        </div>
+        <button id="logoutBtn" class="ghost hidden">Log out</button>
+      </header>
+
+      <main class="layout">
+        <section class="panel auth-panel" id="authPanel">
+          <div class="panel-header">
+            <h2>Welcome</h2>
+          </div>
+
+          <div class="auth-tabs">
+            <button class="tab active" type="button" data-auth-tab="login">Log in</button>
+            <button class="tab" type="button" data-auth-tab="signup">Sign up</button>
+          </div>
+
+          <form id="loginForm" class="auth-form active">
+            <label>
+              Username
+              <input type="text" id="loginUsername" placeholder="Enter your username" maxlength="20" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="loginPassword" placeholder="Enter your password" maxlength="30" required />
+            </label>
+            <button type="submit" class="primary-btn">Log in</button>
+          </form>
+
+          <form id="signupForm" class="auth-form">
+            <label>
+              Username
+              <input type="text" id="signupUsername" placeholder="Choose a username" maxlength="20" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="signupPassword" placeholder="Create a password" maxlength="30" required />
+            </label>
+            <label>
+              Confirm password
+              <input type="password" id="signupConfirm" placeholder="Confirm password" maxlength="30" required />
+            </label>
+            <button type="submit" class="primary-btn">Create account</button>
+          </form>
+
+          <p id="authMessage" class="message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel app-panel hidden" id="gamePanel">
+          <div class="status-row">
+            <div>
+              <p class="label">Player</p>
+              <h3 id="playerName">Player</h3>
+            </div>
+            <div>
+              <p class="label">Timer</p>
+              <h3 id="timerValue">45s</h3>
+            </div>
+            <div>
+              <p class="label">Score</p>
+              <h3 id="scoreValue">0</h3>
+            </div>
+          </div>
+
+          <div id="questionCard" class="question-card">
+            <div class="question-topline">
+              <span id="questionCount">Question 1 of 5</span>
+              <span id="correctPill">Correct: 0</span>
+            </div>
+            <h2 id="questionText">Ready to play?</h2>
+            <div id="answerList" class="answer-list"></div>
+          </div>
+
+          <div class="controls">
+            <button id="startBtn" class="primary-btn">Start quiz</button>
+            <button id="nextBtn" class="secondary-btn hidden">Next question</button>
+          </div>
+
+          <p id="resultMessage" class="message" aria-live="polite"></p>
+        </section>
+
+        <aside class="panel leaderboard-panel">
+          <div class="panel-header">
+            <h2>Leaderboard</h2>
+            <span class="mini-note">top 10</span>
+          </div>
+          <p class="leaderboard-rules">Score = correct answers × 100 − seconds used</p>
+          <ol id="leaderboardList" class="leaderboard-list"></ol>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
