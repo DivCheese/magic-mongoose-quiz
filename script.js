@@ -41,6 +41,9 @@ const state = {
   gameStartedAt: null
 };
 
+const splashScreen = document.getElementById('splashScreen');
+const mainApp = document.getElementById('mainApp');
+
 const authTabs = document.querySelectorAll('[data-auth-tab]');
 const authForms = document.querySelectorAll('.auth-form');
 const loginForm = document.getElementById('loginForm');
@@ -60,6 +63,13 @@ const startBtn = document.getElementById('startBtn');
 const nextBtn = document.getElementById('nextBtn');
 const resultMessage = document.getElementById('resultMessage');
 const leaderboardList = document.getElementById('leaderboardList');
+
+function hideSplashScreen() {
+  setTimeout(() => {
+    splashScreen.classList.add('hidden');
+    mainApp.classList.remove('hidden');
+  }, 3400);
+}
 
 function shuffleArray(items) {
   const copy = [...items];
@@ -405,6 +415,7 @@ logoutBtn.addEventListener('click', logOutUser);
 startBtn.addEventListener('click', startQuiz);
 nextBtn.addEventListener('click', advanceQuestion);
 
+hideSplashScreen();
 showLoggedInState();
 renderLeaderboard();
 
